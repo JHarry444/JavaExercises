@@ -1,12 +1,8 @@
 package Level2;
 
-import java.util.*;
-
 public enum PaintWizard {
 
-    CHEAPOMAX(20, 19.99, 10) {
-
-    }, AVERAGEJOES(15, 17.99, 11), DULUXOUROUSPAINTS(10, 25, 20);
+    CHEAPOMAX(20, 19.99, 10), AVERAGEJOES(15, 17.99, 11), DULUXOUROUSPAINTS(10, 25, 20);
 
     private int litres;
     private double price;
@@ -23,7 +19,7 @@ public enum PaintWizard {
     }
 
     private double priceForRoom(int size) {
-        return  Math.round(size / this.getTotalCoverage()) * this.price; //tins needed * price
+        return Math.round(size / this.getTotalCoverage()) * this.price; //tins needed * price
     }
 
     public static PaintWizard findLeastWasteful(int squareFootage) {
@@ -35,7 +31,7 @@ public enum PaintWizard {
         } else if (averageWaste < cheapoWaste && averageWaste < duluxWaste) {
             return AVERAGEJOES;
         } else if (duluxWaste < cheapoWaste && duluxWaste < averageWaste) {
-            return  DULUXOUROUSPAINTS;
+            return DULUXOUROUSPAINTS;
         } else {
             return CHEAPOMAX;
         }
